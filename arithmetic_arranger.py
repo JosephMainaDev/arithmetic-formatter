@@ -52,8 +52,11 @@ def arithmetic_arranger(problems, solution = False):
     row1 = '    '.join([v[0] for _, v in arranged.items()])
     row2 = '    '.join([v[1] for _, v in arranged.items()])
     dashes = '    '.join([d[2] for _, d in arranged.items()])
-    ans = '    '.join([a[3] for _, a in arranged.items()])
 
-    arranged_problems = row1 + '\n' + row2 + '\n' + dashes + '\n' + ans
+    arranged_problems = row1 + '\n' + row2 + '\n' + dashes
+
+    if solution:
+        ans = '    '.join([a[3] for _, a in arranged.items()])
+        arranged_problems += '\n' + ans
 
     return arranged_problems
