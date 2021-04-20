@@ -1,4 +1,26 @@
+"""
+Arranges arithmetic problems vertically and side-by-side.
+
+Arguments:
+    problems (:list:`str`): A list of strings that are arithmetic problems.
+    solution (bool, optional): True indicates that answers are to be displayed.
+        Defaults to False.
+
+Returns:
+    str: The string representation of the problems
+        (and answers if `solution` = True) arranged vertically and
+        side-by-side OR the string is an error.
+
+"""
+
 def arranger(operand1, operator, operand2):
+    """
+    Helper function that arranges operand1
+
+    Arguments:
+        operand1 (str): A string that goes in the top row of the solution.
+        operator, operand2 (str): Strings that go into the bottom row.
+    """
     op1 = len(operand1)
     op2 = len(operand2)
 
@@ -42,10 +64,10 @@ def arithmetic_arranger(problems, solution = False):
     for i in range(len(problems)):
         ans = ''
         row1, row2 = arranger(str(first_operands[i]), operators[i], str(second_operands[i]))
-        dashes = '-'*len(row1)
+        dashes = '-' * len(row1)
         if solution:
             ans = str(eval(problems[i]))
-            ans = ' '*(len(dashes) - len(ans)) + ans
+            ans = ' ' * (len(dashes) - len(ans)) + ans
 
         arranged[i] = [row1, row2, dashes, ans]
 
